@@ -1,0 +1,86 @@
+<meta charset=utf-8>
+<meta http-equiv=refresh content=5>
+<style>
+* { box-sizing: border-box }
+html { text-align: center; padding: 4em }
+body { font-family: 'Helvetica', sans-serif; font-size: 20px; margin: auto; line-height: 1.2em; text-align: left }
+@media(min-width: 950px) { body { width: 50% } }
+h1 { font-size: 90px; margin: 0 }
+h2 { margin-top: 2em }
+h3 { font-size: 25px; margin: 20px 0 0 140px; color: #cccccc }
+a:link, a:visited { color: #ff9900; text-decoration: none }
+a:hover { border-bottom: 3px solid }
+.instructions { display: flex; flex-wrap: wrap }
+.instructions figure { width: 25%; padding: 0.5em; flex-grow: 1; flex-basis: auto }
+.instructions figcaption { font-size: 0.8em }
+.instructions pre { color: #a0a0a0; line-height: 1.1em }
+</style>
+
+<title>Fightboats</title>
+
+<h1>Fightboats</h1>
+<h3>Makin' boats fight! 🛳👊💥</h3>
+
+<h2>Task</h2>
+<p>You'll be creating a digital version of a <a href="https://en.wikipedia.org/wiki/Battleship_(game)">certain well-known game</a>.</p>
+<p>The game is played with two people. (If you finish early, you can try and create a version where you play against the computer!)</p>
+
+<h2>Tips</h2>
+<p><strong>Work in pairs.</strong> You're less likely to get stuck.</p>
+<p>Figure out what the different objects in your game are, what they do and what they need to communicate with before you start coding. You can use <a href="crc.png" title="CRC Card">CRC</a>.</p>
+<p>When you start coding, use the <a href="http://vixus0.github.io/rabble">rabble timer</a> to make sure you're not hogging the keyboard.</p>
+
+<h2>Game Reminder</h2>
+<p>Here's a quick summary of how to play:</p>
+<div class=instructions>
+<figure>
+<figcaption>Each player starts with a 10×10 grid:</figcaption>
+<pre>
+ ✪ A B C D E F G H I J
+ 1 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 2 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 3 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 4 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 5 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 6 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 7 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 8 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 9 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+10 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+</pre>
+</figure>
+<figure>
+<figcaption>They place an aircraft Carrier (5 ◦), a Battleship (4 ◦), a Submarine (3 ◦), a Destroyer (3 ◦) and a Patrol (2 ◦) on the grid at random.</figcaption>
+<pre>
+ ✪ A B C D E F G H I J
+ 1 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 2 ◦ ◦ C C C C C ◦ ◦ ◦
+ 3 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 4 ◦ ◦ ◦ ◦ ◦ ◦ ◦ S ◦ ◦
+ 5 ◦ ◦ ◦ ◦ ◦ ◦ ◦ S ◦ ◦
+ 6 ◦ ◦ D ◦ ◦ ◦ ◦ S ◦ ◦
+ 7 ◦ ◦ D ◦ ◦ ◦ ◦ ◦ ◦ P
+ 8 ◦ ◦ D ◦ ◦ ◦ ◦ ◦ ◦ P
+ 9 ◦ ◦ ◦ ◦ B B B B ◦ ◦
+10 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+</pre>
+</figure>
+<figure>
+<figcaption>The players take turns to fire at their opponent's grid. They get told if they hit something or missed.</figcaption>
+<pre>
+ ✪ A B C D E F G H I J
+ 1 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 2 ◦ ◦ C C C ✱ C ◦ ◦ ◦
+ 3 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+ 4 ◦ ◦ ◦ ◦ ◦ ◦ ◦ S ◦ ◦
+ 5 ◦ ◦ ◦ ◦ ◦ ◦ ◦ S ◦ ◦
+ 6 ◦ ◦ D ◦ ◦ ◦ ◦ S ◦ ◦
+ 7 ◦ ◦ D ◦ ◦ ◦ ◦ ◦ ◦ P
+ 8 ◦ ◦ D ◦ ◦ ◦ ◦ ◦ ◦ P
+ 9 ◦ ◦ ◦ ◦ B B B B ◦ ◦
+10 ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦ ◦
+</pre>
+</figure>
+<figure>
+<figcaption>If a whole ship is eventually hit, it sinks. The first player to hit all their opponent's ships wins.</figure></figcaption>
+</div>
