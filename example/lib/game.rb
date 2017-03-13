@@ -111,7 +111,7 @@ private
         player.add_ship(ship)
       rescue Errors::ShipPlacementError => e
         orient_str = {h: 'horizontal', v: 'vertical'}[orientation]
-        puts "Can't place #{name} at #{input} with a #{orient_str} orientation!"
+        puts "Can't place #{type} at #{input} with a #{orient_str} orientation!"
         puts " - #{e.message}"
         retry
       end
